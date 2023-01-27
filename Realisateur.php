@@ -11,6 +11,10 @@ class Realisateur extends Personne {
         $this->listeFilms[] = $film;
     }
 
-    
+    public function afficherFilms() {
+        foreach ($this->listeFilms as $film) {
+            echo $film."<br>";
+        }
+    }
 }
 ?>
