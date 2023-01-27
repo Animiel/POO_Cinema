@@ -12,7 +12,9 @@ class Film {
         $this->dateSortieFr = $dateSortieFr;
         $this->duree = $duree;
         $this->real = $real;
+        $this->real->ajouterFilm($this);
         $this->genre = $genre;
+        $this->genre->ajouterFilm($this);
         $this->listeActeurs = [];
     }
 

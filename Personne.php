@@ -43,5 +43,9 @@ class Personne {
     public function setNaissance(DateTime $naissance) {
         $this->naissance = $naissance;
     }
+
+    public function __toString() {
+        return "$this->nom $this->prenom est un(e) $this->sexe né(e) le ".$this->getNaissance()."<br>";
+    }
 }
 ?>

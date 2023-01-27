@@ -1,9 +1,10 @@
 <?php
-class Acteur extends Personne {
+// class Acteur extends Personne {
+//     private Film $film;
 
+//     public function __construct(Film $film) {
+//         parent::__construct($nom, $prenom, $sexe, $naissance);
 
-    public function __construct() {
-        parent::__construct($nom, $prenom, $sexe, $naissance);
-    }
-}
+//     }
+// }
 ?>

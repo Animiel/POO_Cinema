@@ -15,5 +15,9 @@ class Genre {
     public function setGenre(string $genre) {
         $this->genre = $genre;
     }
+
+    public function ajouterFilm(Film $film) {
+        $this->listeGenreFilms[] = $film;
+    }
 }
 ?>
