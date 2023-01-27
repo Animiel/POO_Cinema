@@ -8,7 +8,7 @@ class Genre {
         $this->listeGenreFilms = [];
     }
 
-    public function getGenre(string $genre) {
+    public function getGenre() {
         return $this->genre;
     }
 
@@ -18,6 +18,16 @@ class Genre {
 
     public function ajouterFilm(Film $film) {
         $this->listeGenreFilms[] = $film;
+    }
+
+    public function afficherFilms() {
+        foreach ($this->listeGenreFilms as $film) {
+            echo $film."<br>";
+        }
+    }
+
+    public function __toString() {
+        return $this->genre;
     }
 }
 ?>
