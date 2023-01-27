@@ -12,9 +12,11 @@ class Realisateur extends Personne {
     }
 
     public function afficherFilms() {
+        echo "Voici la liste des films réalisés par $this->prenom $this->nom :<br><br>";
         foreach ($this->listeFilms as $film) {
             echo $film."<br>";
         }
+        return "<br>";
     }
 }
 ?>

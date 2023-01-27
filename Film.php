@@ -59,7 +59,7 @@ class Film {
     }
 
     public function __toString() {
-        return $this->titre." est un film de ".$this->getGenre()." réalisé par ".$this->real->getPrenom()." ".$this->real->getNom()." et diffusé en salle en ".$this->dateSortieFr->format('Y').". Sa durée est de ".$this->duree." minutes.<br>";
+        return $this->titre." est un film de ".$this->getGenre()." réalisé par ".$this->real->getPrenom()." ".$this->real->getNom()." et diffusé en salle en ".$this->dateSortieFr->format('Y').". Sa durée est de ".$this->duree." minutes.";
     }
 }
 ?>

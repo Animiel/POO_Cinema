@@ -21,9 +21,11 @@ class Genre {
     }
 
     public function afficherFilms() {
+        echo "Voici les films de la catégorie $this :<br><br>";
         foreach ($this->listeGenreFilms as $film) {
             echo $film."<br>";
         }
+        return "<br>";
     }
 
     public function __toString() {
