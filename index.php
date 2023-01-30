@@ -22,4 +22,5 @@ $casting3 = new Casting($film3, $acteur1, $joker);
 
 echo $acteur1->afficherCasting()."<br>";
 echo $joker->afficherCasting()."<br>";
+echo $film3->getSynopsis()."<br>";
 ?>
