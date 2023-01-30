@@ -6,6 +6,12 @@ class Acteur extends Personne {
         parent::__construct($nom, $prenom, $sexe, $naissance);
     }
 
+    public function afficherInfos() {
+        $result = $this->nom." ".$this->prenom." est un(e) ".$this->sexe." né(e) le ".$this->naissance->format('d/m/Y').".<br>";
+        $result .= $this->afficherCasting();
+        return $result;
+    }
+
     public function addCasting(Casting $casting) {
         $this->listeCastings[] = $casting;
     }
@@ -19,7 +25,7 @@ class Acteur extends Personne {
     }
 
     public function __toString() {
-        return $this->prenom." ".$this->nom;
+        return $this->nom." ".$this->prenom;
     }
 }
 ?>

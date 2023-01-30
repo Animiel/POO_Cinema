@@ -29,7 +29,7 @@ class Film {
     }
 
     public function getDateSortieFr() {
-        return $this->dateSortieFr;
+        return $this->dateSortieFr->format('Y');
     }
 
     public function setDateSortieFr(DateTime $date) {
@@ -69,7 +69,10 @@ class Film {
     }
 
     public function afficherInfosFilm() {
-        return $this->titre." est un film de ".$this->getGenre()." réalisé par ".$this->real->getPrenom()." ".$this->real->getNom()." et diffusé en salle en ".$this->dateSortieFr->format('Y').". Sa durée est de ".$this->duree." minutes.";
+        $result = $this->titre." est un film de ".$this->getGenre()."<br> réalisé par ".$this->real->getPrenom()." ".$this->real->getNom()."<br> et diffusé en salle en ".$this->getDateSortieFr().".<br>Sa durée est de ".$this->duree." minutes.<br>";
+
+        $result .= $this->afficherCasting();
+        return $result;
     }
 
     public function addCasting(Casting $casting) {
@@ -77,7 +80,7 @@ class Film {
     }
     
     public function afficherCasting() {
-        $result = "Les acteurs du film \"$this->titre\" sont :<br>";
+        $result = "Les acteurs du film <strong>$this->titre</strong>"." sont :<br>";
         foreach($this->listeCastings as $casting) {
             $result .= $casting->getActeur()." joue le rôle de ".$casting->getRole()."<br>";
         }
@@ -85,7 +88,7 @@ class Film {
     }
 
     public function __toString() {
-        return $this->titre;
+        return $this->titre." (".$this->getDateSortieFr().")";
     }
 }
 ?>
