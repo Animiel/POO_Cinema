@@ -37,5 +37,9 @@ class Role {
             return $acteur;
         }
     }
+
+    public function __toString() {
+        return "$this->role";
+    }
 }
 ?>

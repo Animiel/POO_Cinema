@@ -5,7 +5,7 @@ class Film {
     private int $duree;
     private Realisateur $real;
     private Genre $genre;
-    private array $listeActeurs;
+    private array $listeCastings;
 
     public function __construct(string $titre, string $dateSortieFr, int $duree, Realisateur $real, Genre $genre) {
         $this->titre = $titre;
@@ -15,7 +15,7 @@ class Film {
         $this->real->ajouterFilm($this);
         $this->genre = $genre;
         $this->genre->ajouterFilm($this);
-        $this->listeActeurs = [];
+        $this->listeCastings = [];
     }
 
     public function getTitre() {
@@ -58,20 +58,21 @@ class Film {
         $this->genre = $genre;
     }
 
-    public function ajouterActeur(Acteur $acteur) {
-        $this->listeActeurs[] .= $acteur;
+    public function addCasting(Casting $casting) {
+        $this->listeCastings[] = $casting;                  //on stock l'objet en entier, la manipulation de ses propriétés se fait dans l'affichage
     }
     
-    public function afficherActeurs() {
+    public function afficherCasting() {
         $result = "Les acteurs du film \"$this->titre\" sont :<br>";
-        foreach($this->listeActeurs as $acteur) {
-            $result .= $acteur." incarnant le rôle de "."<br>";
+        foreach($this->listeCastings as $casting) {
+            $result .= $casting->getActeur()." joue le rôle de ".$casting->getRole()."<br>";
         }
         return $result;
     }
 
     public function __toString() {
-        return $this->titre." est un film de ".$this->getGenre()." réalisé par ".$this->real->getPrenom()." ".$this->real->getNom()." et diffusé en salle en ".$this->dateSortieFr->format('Y').". Sa durée est de ".$this->duree." minutes.";
+        return $this->titre;
     }
+    // ." est un film de ".$this->getGenre()." réalisé par ".$this->real->getPrenom()." ".$this->real->getNom()." et diffusé en salle en ".$this->dateSortieFr->format('Y').". Sa durée est de ".$this->duree." minutes."
 }
 ?>

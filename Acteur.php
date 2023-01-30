@@ -1,34 +1,25 @@
 <?php
 class Acteur extends Personne {
-    private Film $film;
-    private Role $role;
-    private array $listeFilms;
-    private array $listeRoles;
+    private array $listeCastings;
 
-    public function __construct(string $nom, string $prenom, string $sexe, string $naissance, Film $film, string $role) {
+    public function __construct(string $nom, string $prenom, string $sexe, string $naissance) {
         parent::__construct($nom, $prenom, $sexe, $naissance);
-        $this->film = $film;
-        $this->film->ajouterActeur($this);
-        $this->role = new Role($role);
-        $this->role->ajouterActeur($this);
-        $this->listeFilms = [];
-        $this->listeRoles = [];
     }
 
-    public function getFilm() {
-        return $this->film;
+    public function addCasting(Casting $casting) {
+        $this->listeCastings[] = $casting;
     }
 
-    public function setFilm(Film $film) {
-        $this->film = $film;
+    public function afficherCasting() {
+        $result = "Les films dans lesquels $this a joué sont :<br>";
+        foreach($this->listeCastings as $casting) {
+            $result .= $casting->getFilm()." dans le rôle de ".$casting->getRole()."<br>";
+        }
+        return $result;
     }
 
-    public function getRole() {
-        return $this->role;
-    }
-
-    public function setRole(Role $role) {
-        $this->role = $role;
+    public function __toString() {
+        return $this->prenom." ".$this->nom;
     }
 }
 ?>
