@@ -5,11 +5,11 @@ class Personne {
     protected string $sexe;
     protected DateTime $naissance;
 
-    public function __construct(string $nom, string $prenom, string $sexe, DateTime $naissance) {
+    public function __construct(string $nom, string $prenom, string $sexe, string $naissance) {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->sexe = $sexe;
-        $this->naissance = $naissance;
+        $this->naissance = new DateTime($naissance);
     }
 
     public function getNom() {
@@ -45,7 +45,7 @@ class Personne {
     }
 
     public function __toString() {
-        return "$this->nom $this->prenom est un(e) $this->sexe né(e) le ".$this->getNaissance()."<br>";
+        return "$this->nom $this->prenom est un(e) $this->sexe né(e) le ".$this->getNaissance();
     }
 }
 ?>

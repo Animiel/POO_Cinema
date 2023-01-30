@@ -7,9 +7,9 @@ class Film {
     private Genre $genre;
     private array $listeActeurs;
 
-    public function __construct(string $titre, DateTime $dateSortieFr, int $duree, Realisateur $real, Genre $genre) {
+    public function __construct(string $titre, string $dateSortieFr, int $duree, Realisateur $real, Genre $genre) {
         $this->titre = $titre;
-        $this->dateSortieFr = $dateSortieFr;
+        $this->dateSortieFr = new DateTime($dateSortieFr);
         $this->duree = $duree;
         $this->real = $real;
         $this->real->ajouterFilm($this);
@@ -56,6 +56,18 @@ class Film {
 
     public function setGenre(Genre $genre) {
         $this->genre = $genre;
+    }
+
+    public function ajouterActeur(Acteur $acteur) {
+        $this->listeActeurs[] .= $acteur;
+    }
+    
+    public function afficherActeurs() {
+        $result = "Les acteurs du film \"$this->titre\" sont :<br>";
+        foreach($this->listeActeurs as $acteur) {
+            $result .= $acteur." incarnant le rôle de "."<br>";
+        }
+        return $result;
     }
 
     public function __toString() {
