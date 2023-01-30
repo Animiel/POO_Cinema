@@ -21,4 +21,5 @@ $casting2 = new Casting($film2, $acteur2, $joker);
 $casting3 = new Casting($film3, $acteur1, $joker);
 
 echo $acteur1->afficherCasting()."<br>";
+echo $joker->afficherCasting()."<br>";
 ?>

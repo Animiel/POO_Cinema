@@ -1,11 +1,11 @@
 <?php
 class Role {
     private string $role;
-    private array $listeActeurs;
+    private array $listeCastings;
 
     public function __construct(string $role) {
         $this->role = $role;
-        $this->listeActeurs = [];
+        $this->listeCastings = [];
     }
 
     public function getRole() {
@@ -16,26 +16,20 @@ class Role {
         $this->role = $role;
     }
 
-    public function getActeur() {
-        return $this->acteur;
+    public function getListeCasting() {
+        return $this->listeCastings;
     }
 
-    public function setActeur(Acteur $acteur) {
-        $this->acteur = $acteur;
+    public function addCasting(Casting $casting) {
+        $this->listeCastings[] = $casting;
     }
 
-    public function getListeActeurs() {
-        return $this->listeActeurs;
-    }
-
-    public function ajouterActeur(Acteur $acteur) {
-        $this->listeActeurs[] = $acteur;
-    }
-
-    public function afficherActeurs() {
-        foreach ($this->listeActeurs as $acteur) {
-            return $acteur;
+    public function afficherCasting() {
+        $result = "Le rôle de $this a été interprété par :<br>";
+        foreach($this->listeCastings as $casting) {
+            $result .= $casting->getActeur()." dans ".$casting->getFilm()."<br>";
         }
+        return $result;
     }
 
     public function __toString() {
